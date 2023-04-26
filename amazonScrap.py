@@ -55,6 +55,7 @@ def launch_scraping():
     pf = DataFrame(list, columns=['Title', 'Link', 'Price', 'Rating', 'Number of rates'])
     pf.to_csv('AmazonArticles.csv', index=False, encoding='utf-8')
 
+    print("Scraping done! (AmazonArticles.csv created)")
 
 if __name__ == "__main__":
     launch_scraping()
