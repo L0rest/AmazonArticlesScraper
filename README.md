@@ -1,4 +1,4 @@
-# Amazon Search Results Scraper
+# Amazon Search Results Scraper (FR)
 
 Ce programme est conçu pour vous aider à obtenir les résultats d'une recherche sur Amazon, y compris le nom des articles, leur prix, leur note et leur lien pour y accéder directement.
 
@@ -44,6 +44,51 @@ Les informations collectées seront stockées dans un fichier CSV nommé `Amazon
 
 Si vous avez des questions, des suggestions d'amélioration ou des commentaires sur ce programme, n'hésitez pas à me contacter à l'adresse e-mail suivante : lorest.git@gmail.com
 
-## Licence
 
-Ce programme est sous licence MIT. Vous êtes libre de l'utiliser, de le modifier et de le distribuer. Veuillez consulter le fichier LICENCE pour plus d'informations.
+#
+#
+# Amazon Search Results Scraper (EN)
+
+This program is designed to help you obtain the search results from Amazon, including the name of the items, their price, rating, and link to access them directly.
+
+## Requirements
+
+Before you can use this program, you need to ensure that you have the following:
+
+- Python 3 installed on your computer
+- The following Python libraries installed:
+    - Clouscraper
+    - BeautifulSoup4
+    - Pandas
+
+## Installation
+
+To install the required Python libraries, you can use the pip package manager. Open your terminal and enter the following commands:
+
+```bash
+pip install cloudscraper
+pip install beautifulsoup4
+pip install pandas
+```
+
+Once the libraries are installed, you can download the ZIP folder or clone the project to your computer using the following command:
+
+```bash
+git clone https://github.com/L0rest/AmazonArticlesScraper.git
+```
+
+## Usage
+
+To use the program, you need to execute the amazonScrap.py file directly on your IDE or from your terminal using the following command:
+
+```bash
+python amazonScrap.py
+```
+
+You will be prompted to enter the search term you want to scrape, as well as the number of Amazon pages desired. Once you have entered your search term, the program will begin collecting information on the corresponding products on Amazon.
+
+The collected information will be stored in a CSV file named AmazonArticles.csv. You can open this file with Microsoft Excel or any other software that is compatible with CSV files.
+
+## Contact
+
+If you have any questions, suggestions for improvement, or comments about this program, please feel free to contact me at the following email address: lorest.git@gmail.com
