@@ -22,9 +22,11 @@ pip install beautifulsoup4
 pip install pandas
 ```
 
-Une fois les bibliothèques installées, vous pouvez cloner le projet sur votre ordinateur en utilisant la commande suivante :
+Une fois les bibliothèques installées, vous pouvez télécharger le dossier ZIP ou cloner le projet sur votre ordinateur en utilisant la commande suivante :
 
-git clone https://github.com/votre-nom/utilitaire-recherche-amazon.git
+```bash
+git clone https://github.com/L0rest/AmazonArticlesScraper.git
+```
 
 ## Utilisation
 
