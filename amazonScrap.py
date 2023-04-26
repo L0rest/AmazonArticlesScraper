@@ -4,8 +4,8 @@ from bs4 import BeautifulSoup
 from pandas import DataFrame
 import cloudscraper
 
+# List of scraped articles
 list = []
-
 
 def get_articles(research, page):
     research = research.replace(" ", "+")
@@ -41,7 +41,12 @@ def get_articles(research, page):
             list.append([title, link, price, rating, numberOfRates])
 
 
-def launch_scraping(research, no_pages):
+def launch_scraping():
+    # Get the research and the number of pages to scrap
+    research = input("What do you want to research? ")
+    no_pages = int(input("How many pages do you want to scrap? "))
+
+    # Scrap the articles
     for i in range(1, no_pages + 1):
         with ThreadPoolExecutor(max_workers=8) as executor:
             executor.submit(get_articles, research, str(i))
@@ -52,8 +57,4 @@ def launch_scraping(research, no_pages):
 
 
 if __name__ == "__main__":
-    # Variables to define
-    research = "tapis de souris"
-    no_pages = 7
-    # Launch the scraping
-    launch_scraping(research, no_pages)
+    launch_scraping()
