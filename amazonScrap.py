@@ -7,6 +7,7 @@ import cloudscraper
 # List of scraped articles
 list = []
 
+
 def get_articles(research, page):
     research = research.replace(" ", "+")
     url = "https://www.amazon.fr/s?k=" + research + "&page=" + page + "&crid=243EN552MY0KK&qid=1682490983&sprefix=playstation+5%2Caps%2C232&ref=sr_pg_" + page
@@ -19,9 +20,11 @@ def get_articles(research, page):
 
     for res in container:
         title = res.find('span', class_="a-size-base-plus a-color-base a-text-normal")
-        if title is not None and title.text != "":
+        if title is not None and title.text.replace(" ", "") != "":
             title = title.text
-            link = "https://www.amazon.fr" + res.find('a', class_="a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal")['href']
+            link = "https://www.amazon.fr" + res.find('a',
+                                                      class_="a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal")[
+                'href']
             price = res.find('span', class_="a-offscreen")
             if price is not None:
                 price = price.text
@@ -44,7 +47,15 @@ def get_articles(research, page):
 def launch_scraping():
     # Get the research and the number of pages to scrap
     research = input("What do you want to research? ")
-    no_pages = int(input("How many pages do you want to scrap? "))
+    no_pages = input("How many pages do you want to scrap? ")
+
+    while type(no_pages) != int:
+        try:
+            no_pages = int(no_pages)
+        except ValueError:
+            no_pages = input("Please enter a number: ")
+
+    print("\nScraping " + str(no_pages) + " pages of Amazon for " + research + "...\n")
 
     # Scrap the articles
     for i in range(1, no_pages + 1):
@@ -56,6 +67,7 @@ def launch_scraping():
     pf.to_csv('AmazonArticles.csv', index=False, encoding='utf-8')
 
     print("Scraping done! (AmazonArticles.csv created)")
+
 
 if __name__ == "__main__":
     launch_scraping()
